@@ -1,0 +1,9 @@
+{% if cam_list %}
+    <ul>
+    {% for cam in cam_list %}
+        <li><a href="/camuse/{{ cam.id }}/">{{ cam.cam_attr }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No camuse are available.</p>
+{% endif %}

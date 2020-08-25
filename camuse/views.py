@@ -1,12 +1,23 @@
 from django.shortcuts import render
+from django.template import loader
+from django import template
 from django.http import HttpResponse
-from camuse.models import Camera, User
+from .models import Camera, User
 # Create your views here.
 
-def index(request):
+def index0(request):
     cam_list = Camera.objects.order_by('id')[:5]
     output = ', '.join([q.cam_position for q in cam_list])
     return HttpResponse(output)
+
+def index(request):
+    latest_cam_list = Camera.objects.order_by('id')[:5]
+    template = loader.get_template('camuse/index.html')
+    context = {
+        'latest_cam_list': latest_cam_list,
+    }
+    return HttpResponse(template.render(context, request))
+
 
 
 def detail(request, Camera_id):
