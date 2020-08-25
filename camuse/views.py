@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.template import loader
-from django import template
 from django.http import HttpResponse
 from .models import Camera, User
 # Create your views here.
@@ -18,7 +17,9 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
-
+def test(request):
+    template = loader.get_template('camuse/test.html')
+    return HttpResponse(template.render(context, request))
 
 def detail(request, Camera_id):
     return HttpResponse("You're looking at Camera %s." % Camera_id)
