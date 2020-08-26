@@ -1,7 +1,9 @@
-{% if cam_list %}
+{% if latest_cam_list %}
     <ul>
-    {% for cam in cam_list %}
-        <li><a href="/camuse/{{ cam.id }}/">{{ cam.cam_attr }}</a></li>
+    {% for cam in latest_cam_list %}
+        <!-- <li><a href="/camuse/{{ cam.id }}/">{{ cam.cam_position }}</a></li> -->
+        <li><a href="{% url 'detail' cam.id %}">{{ cam.cam_position }}</a>
+            <!-- <li>a href=""</li> -->
     {% endfor %}
     </ul>
 {% else %}

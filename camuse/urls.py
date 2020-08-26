@@ -1,11 +1,12 @@
 from django.urls import path
-from . import templates
+
 from . import views
 
 urlpatterns = [
     # ex: /camuse/
     path('', views.index, name='index'),
-    path('', templates.test, name='test'),
+    # ex: /camuse/test/
+    path('test/',  views.test, name='test'),
     # ex: /camuse/5/
     path('<int:Camera_id>/', views.detail, name='detail'),
     # ex: /camuse/5/state/
