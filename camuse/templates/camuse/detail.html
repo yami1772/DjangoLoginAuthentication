@@ -1,0 +1,14 @@
+<h1>{{ cam.id }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<!-- <form action="{% url 'camuse:detail' cam.id %}" method="post">
+    {% url 'detail' cam.id %}
+{% csrf_token %}
+{% for choice in camera.User.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <!-- <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br> -->
+    <li><a href="{% url 'detail' cam.id %}">{{ cam.cam_position }}</a>
+{% endfor %}
+<input type="submit" value="Vote">
+</form> -->

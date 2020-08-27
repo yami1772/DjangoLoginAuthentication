@@ -36,11 +36,21 @@ def test(request):
 
 def detail(request, Camera_id):
     try:
-        camera = Camera.objects.get(pk=Camera_id)
+        cam = Camera.objects.get(pk=Camera_id)
     except Camera.DoesNotExist:
         raise Http404("Camera id does not exist")
-    return HttpResponse("You're looking at Camera %s." % Camera_id)
+    return render(request, 'camuse/detail.html', {'cam': cam})
 
+# def detail0(request, Camera_id):
+#     try:
+#         camera = Camera.objects.get(pk=Camera_id)
+#     except Camera.DoesNotExist:
+#         raise Http404("Camera id does not exist")
+#     return HttpResponse("You're looking at Camera %s." % Camera_id)
+
+# def detail1(request, Camera_id):
+#     cam = get_object_or_404(Question, pk=Camera_id)
+#     return render(request, 'camuse/detail.html', {'cam': cam})
 
 def state(request, Camera_id):
     response = "You're looking at the state of camuse %s."
